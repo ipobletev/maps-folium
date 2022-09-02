@@ -1,0 +1,5 @@
+#temp
+cache
+venv
+*.html
+test.py
