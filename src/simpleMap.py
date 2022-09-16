@@ -14,7 +14,7 @@ class Map:
     
     def showMap(self):
         #Create the map
-        my_map = folium.Map(location = self.center, zoom_start = 90,tiles=TYPE_MAP)
+        my_map = folium.Map(location = self.center, zoom_start = self.zoom_start,tiles=TYPE_MAP)
         
         #Add a marker
         tooltip = "Click me!"
@@ -27,5 +27,5 @@ class Map:
         webbrowser.open("src/templates/map.html")
 
 #Define coordinates of where we want to center our map
-map = Map(center = COORDS, zoom_start = 13)
+map = Map(center = COORDS, zoom_start = 15)
 map.showMap()
