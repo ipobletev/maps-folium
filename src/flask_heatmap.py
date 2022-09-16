@@ -9,7 +9,7 @@ from folium.plugins import HeatMap
 import json
 from branca.colormap import LinearColormap
 
-URL_API = "https://rcg9tjimie.execute-api.us-west-2.amazonaws.com/items"
+URL_API = ""
 
 TYPE_MAP="Stamen Terrain"
 
