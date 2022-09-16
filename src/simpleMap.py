@@ -23,8 +23,8 @@ class Map:
         ).add_to(my_map)
         
         #Display the map
-        my_map.save("src/templates/map.html")
-        webbrowser.open("src/templates/map.html")
+        my_map.save("templates/map.html")
+        webbrowser.open("templates/map.html")
 
 #Define coordinates of where we want to center our map
 map = Map(center = COORDS, zoom_start = 15)
