@@ -19,9 +19,16 @@ app = Flask(__name__)
 @app.route('/')
 def initial():
     points = []
-    # Get Data
-    data = requests.get(URL_API)
-    messages = json.loads(data.text)
+    
+    # Get Data from API
+    #data = requests.get(URL_API)
+    #messages = json.loads(data.text)
+    
+    # Get Data from API
+    with open('testjson/data.json', 'r') as file:
+        messages = json.load(file)
+        print(messages)
+        
     for message in messages["Items"]:
         device_id = message["payload"]["output"]["end_device_ids"]["device_id"]
         latitude = message["payload"]["output"]["payloadDecoded"]["latitude"]
@@ -38,7 +45,7 @@ def initial():
         points.append([latitude,longitude,val_rssi])
     
     # Init Map
-    mapObj = folium.Map(location=[last_latitude,last_longitude],zoom_start=90,tiles=TYPE_MAP, control_scale=True, prefer_canvas=True)
+    mapObj = folium.Map(location=[last_latitude,last_longitude],zoom_start=13,tiles=TYPE_MAP, control_scale=True, prefer_canvas=True)
     
     # Add heat points
     mapData= [[x[0],x[1], (x[2])] for x in points]
@@ -54,7 +61,7 @@ def initial():
     colormap.add_to(mapObj)
 
     # Finish
-    mapObj.save('src/templates/map.html')
+    mapObj.save('templates/map.html')
     return render_template('map.html')
 
 def remap(x, in_min, in_max, out_min, out_max):
