@@ -19,7 +19,7 @@ data = [
 mapData= [[x[0],x[1], (x[2])] for x in data]
 
 #HeatMap(mapData).add_to(mapObj)
-HeatMap(data=mapData,max_zoom=18,radius=5,blur=1,overlay=False,control=False,show=False,use_local_extrema=False,
+HeatMap(data=mapData,max_zoom=10,radius=10,blur=2,overlay=False,control=False,show=False,use_local_extrema=False,
     gradient={
         0.1: 'cyan',
         0.5: 'blue',
@@ -27,5 +27,5 @@ HeatMap(data=mapData,max_zoom=18,radius=5,blur=1,overlay=False,control=False,sho
         1.0: 'red'
 }).add_to(mapObj)
 
-mapObj.save("src/templates/map.html")
-webbrowser.open("src/templates/map.html")
+mapObj.save("templates/map.html")
+webbrowser.open("templates/map.html")
